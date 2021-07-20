@@ -1,5 +1,18 @@
 package com.example.mychat;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+
 public class MessagesAdapter extends RecyclerView.Adapter {
 
     Context context;
@@ -39,6 +52,8 @@ public class MessagesAdapter extends RecyclerView.Adapter {
             return ITEM_RECEIVE;
         }
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
@@ -93,14 +108,14 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         if(holder.getClass() == SentViewHolder.class) {
             SentViewHolder viewHolder = (SentViewHolder)holder;
 
-            if(message.getMessage().equals("photo")) {
-                viewHolder.binding.image.setVisibility(View.VISIBLE);
-                viewHolder.binding.message.setVisibility(View.GONE);
-                Glide.with(context)
-                        .load(message.getImageUrl())
-                        .placeholder(R.drawable.placeholder)
-                        .into(viewHolder.binding.image);
-            }
+//            if(message.getMessage().equals("photo")) {
+//                viewHolder.binding.image.setVisibility(View.VISIBLE);
+//                viewHolder.binding.message.setVisibility(View.GONE);
+//                Glide.with(context)
+//                        .load(message.getImageUrl())
+//                        .placeholder(R.drawable.placeholder)
+//                        .into(viewHolder.binding.image);
+//            }
 
             viewHolder.binding.message.setText(message.getMessage());
 
