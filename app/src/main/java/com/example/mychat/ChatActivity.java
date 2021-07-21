@@ -59,6 +59,7 @@ public class ChatActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
+
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
@@ -218,7 +219,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+        getSupportActionBar().hide();
 //        getSupportActionBar().setTitle(name);
 //
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -306,12 +307,12 @@ public class ChatActivity extends AppCompatActivity {
         String currentId = FirebaseAuth.getInstance().getUid();
         database.getReference().child("presence").child(currentId).setValue("Offline");
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.chat_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.chat_menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {
